@@ -1,0 +1,54 @@
+sso:
+  jwt:
+    internal:
+      signature:
+        key:
+          type: ENV
+          value: SIG_SECRET_KEY
+
+eureka:
+  client:
+    enabled: false
+
+
+logging:
+  level:
+    root: INFO
+    com:
+      backbase: DEBUG
+
+backbase:
+  email:
+    worker-count: 2
+  mail:
+    from-address: DoNotReply@8ba132c8-448f-4095-93f5-92441a456aa6.azurecomm.net
+    from-name: test
+spring:
+  activemq:
+    user: admin
+    password: admin
+  cloud:
+    stream:
+      default:
+        content-type: application/json
+        group: systemtest
+        consumer:
+          exchangeDurable: true
+          concurrency: 1
+          prefetch: 1000
+          autoCommitOnError: false
+          max-attempts: 5
+          backOffInitialInterval: 2000
+          backOffMaxInterval: 60000
+          backOffMutliplier: 2.0
+      default-binder: activemq
+      function.definition: commMediumPriority;trackingFunction
+      bindings:
+        trackingFunction-in-0:
+          destination: Backbase.communication.messages-tracking
+        commMediumPriority-in-0:
+          destination: Backbase.communication.email-medium-priority
+        commTracking-out-0:
+          destination: Backbase.communication.messages-tracking
+azure:
+  emailConnectionString: endpoint=https://test.communication.azure.com/;accesskey=dGVzdAo=
