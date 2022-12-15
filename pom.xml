@@ -26,7 +26,7 @@
         <communications-outbound-integration-api.directory>${open-api-specs-dir}/identity</communications-outbound-integration-api.directory>
         <communications-outbound-integration-api.base-package>com.backbase.outbound.integration.communications.rest.spec.v1</communications-outbound-integration-api.base-package>
         <boat-maven-plugin.version>0.16.6</boat-maven-plugin.version>
-        <backbase-bom.version>2022.12</backbase-bom.version>
+        <backbase-bom.version>2022.11</backbase-bom.version>
     </properties>
 
     <dependencyManagement>
@@ -49,11 +49,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-communication-email</artifactId>
