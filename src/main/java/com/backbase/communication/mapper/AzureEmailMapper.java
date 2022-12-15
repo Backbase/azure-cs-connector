@@ -1,15 +1,8 @@
 package com.backbase.communication.mapper;
 
-import com.azure.communication.email.models.*;
 import com.backbase.communication.config.DefaultMailSenderProperties;
-import com.backbase.communication.model.Attachment;
-import com.backbase.communication.model.Email;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.compress.utils.FileNameUtils;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -17,6 +10,7 @@ public class AzureEmailMapper {
 
     private final DefaultMailSenderProperties defaultMailSenderProperties;
 
+/*
     public EmailMessage toEmailMessage(Email email) {
         EmailContent emailContent = new EmailContent(email.getSubject());
         emailContent.setHtml(email.getBody());
@@ -54,6 +48,7 @@ public class AzureEmailMapper {
     }
 
     private EmailImportance toEmailImportance(Boolean important) {
-        return important ? EmailImportance.HIGH : EmailImportance.NORMAL;
+        return Optional.ofNullable(important).orElse(false) ? EmailImportance.HIGH : EmailImportance.NORMAL;
     }
+*/
 }

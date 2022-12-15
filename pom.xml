@@ -50,11 +50,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-communication-email</artifactId>
-            <version>1.0.0-beta.1</version>
-        </dependency>
-        <dependency>
             <groupId>com.backbase.buildingblocks</groupId>
             <artifactId>communication-channel</artifactId>
         </dependency>

@@ -18,6 +18,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Slf4j
 @Deprecated
+/**
+ * @deprecated
+ */
 public class EmailServiceV1 implements EmailService {
     private final EmailV1Validator emailV1Validator;
     private final EmailNotificationService emailNotificationService;
