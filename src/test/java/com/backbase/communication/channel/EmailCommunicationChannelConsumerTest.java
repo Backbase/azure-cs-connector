@@ -16,7 +16,7 @@ import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @ActiveProfiles("test")
-public class EmailCommunicationChannelConsumerTest {
+class EmailCommunicationChannelConsumerTest {
 
     @Autowired
     EmailCommunicationChannelConsumer emailCommunicationChannelConsumer;

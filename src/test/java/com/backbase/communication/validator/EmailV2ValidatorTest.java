@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class EmailV2ValidatorTest {
+class EmailV2ValidatorTest {
     private final EmailV2Validator emailV2Validator = new EmailV2Validator();
 
     @Test

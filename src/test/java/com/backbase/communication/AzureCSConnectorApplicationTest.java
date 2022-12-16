@@ -9,7 +9,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @ActiveProfiles({"test"})
-public class AzureCSConnectorApplicationTest {
+class AzureCSConnectorApplicationTest {
 
     static {
         System.setProperty("SIG_SECRET_KEY", "JWTSecretKeyDontUseInProduction!");

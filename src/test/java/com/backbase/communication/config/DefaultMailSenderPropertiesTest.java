@@ -10,7 +10,7 @@ import org.springframework.test.context.ActiveProfiles;
 @SpringBootTest(classes = DefaultMailSenderProperties.class)
 @EnableConfigurationProperties(value = DefaultMailSenderProperties.class)
 @ActiveProfiles({"test"})
-public class DefaultMailSenderPropertiesTest {
+class DefaultMailSenderPropertiesTest {
 
     @Autowired
     DefaultMailSenderProperties defaultMailSenderProperties;

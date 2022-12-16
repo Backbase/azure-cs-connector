@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
-public class EmailNotificationServiceTest {
+class EmailNotificationServiceTest {
 
     static {
         System.setProperty("SIG_SECRET_KEY", "JWTSecretKeyDontUseInProduction!");

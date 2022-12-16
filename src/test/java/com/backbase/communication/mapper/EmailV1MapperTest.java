@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EmailV1MapperTest {
+class EmailV1MapperTest {
 
     private final List<String> emailList = List.of("email:sara1@backbase.com", "email:sara@backbase.com");
     private final List<String> formattedEmailList = List.of("sara1@backbase.com", "sara@backbase.com");

@@ -13,7 +13,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class EmailV1ValidatorTest {
+class EmailV1ValidatorTest {
 
     static final List<Error> ERROR_LIST_O1 = List.of(new Error()
             .withKey(ErrorCodes.ERR_01.getErrorCode())

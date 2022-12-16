@@ -54,6 +54,6 @@ public class AzureEmailMapper {
     }
 
     private EmailImportance toEmailImportance(Boolean important) {
-        return important ? EmailImportance.HIGH : EmailImportance.NORMAL;
+        return Optional.ofNullable(important).orElse(false) ? EmailImportance.HIGH : EmailImportance.NORMAL;
     }
 }
