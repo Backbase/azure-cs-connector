@@ -31,7 +31,7 @@ public class EmailNotificationServiceTest {
     EmailV1Mapper emailV1Mapper;
 
     @Test
-    public void processRecipient() {
+    void processRecipient() {
         final Recipient recipient = EmailV1Factory.emailV1().getRecipients().get(0);
         final Content content = EmailV1Factory.emailV1().getContent().get(0);
         when(emailV1Mapper.toEmail(recipient, content)).thenReturn(EmailFactory.createRandomEmail());
@@ -42,7 +42,7 @@ public class EmailNotificationServiceTest {
     }
 
     @Test
-    public void processRecipient_withEncoded_body() {
+    void processRecipient_withEncoded_body() {
         final Recipient recipient = EmailV1Factory.emailV1().getRecipients().get(0);
         final Content content = EmailV1Factory.emailV1().getContent().get(0);
 

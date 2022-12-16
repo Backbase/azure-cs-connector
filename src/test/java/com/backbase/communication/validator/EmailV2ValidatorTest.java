@@ -14,13 +14,13 @@ public class EmailV2ValidatorTest {
     private final EmailV2Validator emailV2Validator = new EmailV2Validator();
 
     @Test
-    public void validate_success() {
+    void validate_success() {
         EmailV2 randomEmailV2 = EmailV2Factory.createRandomEmailV2();
         assertDoesNotThrow(() -> emailV2Validator.validate(randomEmailV2));
     }
 
     @Test
-    public void validate_BadRequestException_emptyReceipants() {
+    void validate_BadRequestException_emptyReceipants() {
         EmailV2 randomEmailV2 = EmailV2Factory.createRandomEmailV2();
         randomEmailV2.setTo(List.of());
         randomEmailV2.setCc(List.of());

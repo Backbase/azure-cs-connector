@@ -28,13 +28,13 @@ public class EmailCommunicationChannelConsumerTest {
     EmailNotificationService emailNotificationService;
 
     @Test
-    public void acceptEmailV1Test() {
+    void acceptEmailV1Test() {
         emailCommunicationChannelConsumer.accept(EmailV1Factory.emailV1());
         verify(emailNotificationService, times(1)).sendEmail(any());
     }
 
     @Test
-    public void acceptEmailV2Test() {
+    void acceptEmailV2Test() {
         emailCommunicationChannelConsumer.accept(EmailV2Factory.createRandomEmailV2());
         verify(emailNotificationService, times(1)).sendEmail(any());
     }

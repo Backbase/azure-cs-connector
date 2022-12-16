@@ -16,7 +16,7 @@ public class DefaultMailSenderPropertiesTest {
     DefaultMailSenderProperties defaultMailSenderProperties;
 
     @Test
-    public void defaultMailSenderPropertiesShouldNotBeNull(){
+    void defaultMailSenderPropertiesShouldNotBeNull(){
         Assertions.assertEquals("test", defaultMailSenderProperties.getFromName());
         Assertions.assertEquals("test@backbase.com", defaultMailSenderProperties.getFromAddress());
     }

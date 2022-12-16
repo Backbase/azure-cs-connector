@@ -31,7 +31,7 @@ public class EmailV1ValidatorTest {
     EmailV1Validator emailV1Validator;
 
     @Test
-    public void expect_BadRequestException_whenRecipientIs_Empty() {
+    void expect_BadRequestException_whenRecipientIs_Empty() {
         emailV1Validator = new EmailV1Validator();
         try {
             emailV1Validator.validate(EmailV1Factory.emptyRecipientEmailV1());
@@ -43,7 +43,7 @@ public class EmailV1ValidatorTest {
     }
 
     @Test
-    public void expect_BadRequestException_whenContentIs_Empty() {
+    void expect_BadRequestException_whenContentIs_Empty() {
         emailV1Validator = new EmailV1Validator();
         try {
             emailV1Validator.validate(EmailV1Factory.emptyContentEmailV1());
@@ -55,7 +55,7 @@ public class EmailV1ValidatorTest {
     }
 
     @Test
-    public void expect_BadRequestException_whenContentId_does_not_match() {
+    void expect_BadRequestException_whenContentId_does_not_match() {
         emailV1Validator = new EmailV1Validator();
         try {
             emailV1Validator.validate(EmailV1Factory.mismatchedContentIdEmailV1());

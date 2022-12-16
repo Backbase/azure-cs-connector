@@ -17,7 +17,7 @@ public class EmailV1MapperTest {
     private final EmailV1Mapper mapper = Mappers.getMapper(EmailV1Mapper.class);
 
     @Test
-    public void toEmailV2Test(){
+    void toEmailV2Test(){
         String title = "OTP";
         String body = "Sample email body.";
         final var content = new Content().body(body).title(title);

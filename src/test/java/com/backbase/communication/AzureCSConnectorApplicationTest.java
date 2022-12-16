@@ -19,12 +19,12 @@ public class AzureCSConnectorApplicationTest {
     private ApplicationContext applicationContext;
 
     @Test
-    public void shouldLoadContext() {
+    void shouldLoadContext() {
         Assertions.assertNotNull(applicationContext);
     }
 
     @Test
-    public void shouldLoadContextWithArgs() {
+    void shouldLoadContextWithArgs() {
         AzureCSConnectorApplication.main(new String[]{"--spring.profiles.active=test"});
         Assertions.assertNotNull(applicationContext);
     }
