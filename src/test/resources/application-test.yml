@@ -1,0 +1,27 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    root: INFO
+    com:
+      backbase: DEBUG
+
+azure:
+  emailConnectionString: endpoint=https://test.communication.azure.com/;accesskey=dGVzdAo=
+
+backbase:
+  mail:
+    from-address: test@backbase.com
+    from-name: test
+
+management:
+  health:
+    mail:
+      enabled: false
