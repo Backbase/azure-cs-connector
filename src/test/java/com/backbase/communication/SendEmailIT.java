@@ -12,7 +12,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cloud.stream.test.binder.TestSupportBinderAutoConfiguration;
 import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -40,7 +39,6 @@ import static org.testcontainers.shaded.org.awaitility.Awaitility.await;
 @ActiveProfiles({"default", "it"})
 @SpringBootTest(classes = {AzureCSConnectorApplication.class})
 @ContextConfiguration(classes = AzureCSConnectorApplication.class)
-@EnableAutoConfiguration(exclude = TestSupportBinderAutoConfiguration.class)
 class SendEmailIT implements TrackingListener {
 
     private final RestTemplate template = new RestTemplate();

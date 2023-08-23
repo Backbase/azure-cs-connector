@@ -4,7 +4,7 @@ services:
     hostname: message-broker
 
   communication:
-    image: repo.backbase.com/docker-releases/communication:2022.12
+    image: repo.backbase.com/docker-releases/communication:2023.08
     links:
       - message-broker
     environment:

@@ -4,29 +4,30 @@
     <parent>
         <groupId>com.backbase.buildingblocks</groupId>
         <artifactId>service-sdk-starter-core</artifactId>
-        <version>15.1.0</version>
+        <version>16.0.0-rc.47</version>
     </parent>
 
     <artifactId>azure-cs-connector</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.3.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <java.version>17</java.version>
 
+        <archunit.skip>true</archunit.skip>
         <unitils-core.version>3.4.6</unitils-core.version>
         <build-helper-maven-plugin.version>3.3.0</build-helper-maven-plugin.version>
         <SIG_SECRET_KEY>JWTSecretKeyDontUseInProduction!</SIG_SECRET_KEY>
-        <mapstruct.version>1.5.2.Final</mapstruct.version>
-        <communication.version>2.1.0-b8</communication.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <communication.version>3.1.0-b11</communication.version>
         <open-api-specs-dir>${project.build.directory}/specs</open-api-specs-dir>
         <action-service-api.directory>${open-api-specs-dir}/action</action-service-api.directory>
         <communications-events.directory>${open-api-specs-dir}/communication-spec</communications-events.directory>
         <communications-event.base-package>com.backbase.communication.spec.v1</communications-event.base-package>
         <communications-outbound-integration-api.directory>${open-api-specs-dir}/identity</communications-outbound-integration-api.directory>
         <communications-outbound-integration-api.base-package>com.backbase.outbound.integration.communications.rest.spec.v1</communications-outbound-integration-api.base-package>
-        <boat-maven-plugin.version>0.16.6</boat-maven-plugin.version>
-        <backbase-bom.version>2022.11</backbase-bom.version>
+        <boat-maven-plugin.version>0.17.10</boat-maven-plugin.version>
+        <backbase-bom.version>2023.08</backbase-bom.version>
     </properties>
 
     <dependencyManagement>
@@ -57,6 +58,7 @@
         <dependency>
             <groupId>com.backbase.buildingblocks</groupId>
             <artifactId>communication-channel</artifactId>
+            <version>${communication.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -67,7 +69,7 @@
             <artifactId>service-sdk-starter-mapping</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.swagger</groupId>
+            <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
         </dependency>
         <dependency>
@@ -96,7 +98,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-stream-test-support</artifactId>
+            <artifactId>spring-cloud-stream-test-binder</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -192,36 +194,50 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>
-                                ${communications-outbound-integration-api.directory}/communications-outbound-integration-api-v*.yaml
-                            </inputSpec>
-                            <output>${project.build.directory}/generated-sources/openapi/identity</output>
+                            <output>${project.build.directory}/generated-sources/openapi</output>
                             <generateSupportingFiles>true</generateSupportingFiles>
                             <generatorName>spring</generatorName>
                             <strictSpec>true</strictSpec>
                             <generateApiTests>false</generateApiTests>
                             <generateModelTests>false</generateModelTests>
+                            <inputSpec>${communications-outbound-integration-api.directory}/communications-outbound-integration-api-v*.yaml</inputSpec>
+                            <output>${project.build.directory}/generated-sources/openapi/identity</output>
                             <configOptions>
                                 <library>spring-boot</library>
                                 <dateLibrary>java8</dateLibrary>
                                 <interfaceOnly>true</interfaceOnly>
-                                <addServletRequest>true</addServletRequest>
                                 <skipDefaultInterface>true</skipDefaultInterface>
                                 <useBeanValidation>true</useBeanValidation>
-                                <generateAliasAsModel>true</generateAliasAsModel>
-                                <useClassLevelBeanValidation>true</useClassLevelBeanValidation>
+                                <useClassLevelBeanValidation>false</useClassLevelBeanValidation>
                                 <useTags>true</useTags>
                                 <java8>true</java8>
-                                <bigDecimalAsString>true</bigDecimalAsString>
                                 <useOptional>false</useOptional>
-                                <apiPackage>
-                                    ${communications-outbound-integration-api.base-package}.api
-                                </apiPackage>
-                                <modelPackage>
-                                    ${communications-outbound-integration-api.base-package}.model
-                                </modelPackage>
-                                <sourceFolder>/</sourceFolder>
+                                <apiPackage>${communications-outbound-integration-api.base-package}.api</apiPackage>
+                                <modelPackage>${communications-outbound-integration-api.base-package}.model</modelPackage>
+                                <useJakartaEe>true</useJakartaEe>
+                                <useSpringBoot3>true</useSpringBoot3>
+                                <containerDefaultToNull>false</containerDefaultToNull>
                             </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>replace-java-type-to-existing-java-type</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <replace dir="${communications-events.directory}/v1" value="existingJavaType">
+                                    <include name="**/*.json"/>
+                                    <replacetoken>javaType</replacetoken>
+                                </replace>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>

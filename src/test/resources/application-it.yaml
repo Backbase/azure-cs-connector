@@ -24,6 +24,8 @@ backbase:
     from-address: DoNotReply@8ba132c8-448f-4095-93f5-92441a456aa6.azurecomm.net
     from-name: test
 spring:
+  main:
+    cloud-platform: none
   activemq:
     user: admin
     password: admin

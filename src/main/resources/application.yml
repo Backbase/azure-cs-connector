@@ -30,7 +30,8 @@ management:
 backbase:
   email:
     worker-count: 2
-
+  multi-tenancy:
+    enabled: true
 
 spring:
   cloud:
