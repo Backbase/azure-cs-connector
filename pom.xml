@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.backbase.buildingblocks</groupId>
         <artifactId>service-sdk-starter-core</artifactId>
-        <version>16.0.0-rc.47</version>
+        <version>16.1.5</version>
     </parent>
 
     <artifactId>azure-cs-connector</artifactId>
@@ -19,8 +19,8 @@
         <build-helper-maven-plugin.version>3.3.0</build-helper-maven-plugin.version>
         <SIG_SECRET_KEY>JWTSecretKeyDontUseInProduction!</SIG_SECRET_KEY>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
-        <communication.version>3.1.0-b11</communication.version>
-        <communication-channel.version>3.1.0-b11</communication-channel.version> <!-- TODO update to ssdk-16 compatible version -->
+        <communication.version>4.0.0-b7</communication.version>
+        <communication-channel.version>4.0.0-b7</communication-channel.version>
         <open-api-specs-dir>${project.build.directory}/specs</open-api-specs-dir>
         <action-service-api.directory>${open-api-specs-dir}/action</action-service-api.directory>
         <communications-events.directory>${open-api-specs-dir}/communication-spec</communications-events.directory>
